@@ -25,6 +25,6 @@ check(player.includes('autoSubmitted: true') && player.includes('remaining > 0')
 check(player.includes('Saved locally') && player.includes('Answer sheet'), "Local-save and answer-sheet UX present");
 check(player.includes('mode === "practice"') || player.includes('!isSimulation'), "Practice-only feedback / Jace path present");
 check(home.includes('Quick Practice') && home.includes('Targeted Practice') && home.includes('PRC SIMULATION STANDARD'), "Practice home modes present");
-check(/["']Practice["']\s*,\s*["']\/practice["']/.test(nav) && !/["'](?:Exam|Practice)["']\s*,\s*["']\/exam["']/.test(nav), "Primary navigation points to Practice");
+check(nav.includes("'/practice'") && !nav.includes("'/exam'"), "Primary navigation now points to Practice");
 check(exists("V2-PHASE-5.md"), "Phase 5 implementation notes present");
 console.log("\nV2 Phase 5 verification passed.");

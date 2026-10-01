@@ -25,7 +25,7 @@ check(workspace.includes("Conversations") && workspace.includes("jace:conversati
 check(conversations.includes("ask_jace_threads") && conversations.includes("ask_jace_messages") && conversations.includes("localStorage"), "Local-first Supabase conversation persistence present");
 check(exists("src/components/jace/jace-rich-text.tsx") && read("src/components/jace/jace-rich-text.tsx").includes("katex.renderToString"), "KaTeX engineering equation renderer present");
 check(api.includes("GIVEN") && api.includes("$$...$$") && api.includes("one question at a time"), "Structured engineering and quiz prompt contract present");
-check(nav.includes('NavigationIcon name="jace"') && nav.includes('href="/jace"') && nav.includes("openAskJace()"), "Jace navigation icon, quick sheet and full workspace route integrated");
+check(nav.includes("/assets/jace/mini/nav.png") && nav.includes("/jace"), "Jace sticker navigation and full workspace route integrated");
 check(pkg.dependencies?.katex && pkg.devDependencies?.["@types/katex"], "KaTeX dependency declared");
 check(exists("V2-PHASE-7.md"), "Phase 7 implementation notes present");
 console.log("\nV2 Phase 7 verification passed.");

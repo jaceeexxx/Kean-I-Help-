@@ -46,5 +46,5 @@ export function applyUiPreferences(value: UiPreferences) {
   const prefersDark = typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches;
   const dark = value.theme === "dark" || (value.theme === "system" && prefersDark);
   const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-  if (meta) meta.content = dark ? "#171e1b" : "#203b35";
+  if (meta) meta.content = dark ? "#15191E" : "#182433";
 }

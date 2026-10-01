@@ -113,7 +113,7 @@ export function Today() {
         <strong>{exactDays === null ? setup.targetExamPeriod : Math.max(0, exactDays)}</strong>
         <p>{countdownLabel}</p>
       </div>
-      
+      <div className={styles.timeline} aria-hidden="true"><i/><span/></div>
       {exactDays !== null && <small>{setup.targetExamPeriod}</small>}
     </section>
 
@@ -124,13 +124,13 @@ export function Today() {
       <div className={styles.sectionLabel}>TODAY&apos;S REVIEW</div>
       <div className={styles.reviewBody}>
         <div><span>{review.subtitle}</span><h2>{review.title}</h2><p>Continue where you left off. About {review.minutes} min.</p></div>
-        <Link href={review.href}>Continue review</Link>
+        <Link href={review.href}>Continue review <span aria-hidden="true">→</span></Link>
       </div>
     </section>}
 
     {!restDay && nextItems.length > 0 && <section className={styles.upNext}>
       <div className={styles.sectionLabel}>UP NEXT</div>
-      <div className={styles.list}>{nextItems.map(item => <div key={item.title} className={styles.row}><span className={styles.dot} aria-hidden="true"/><div><b>{item.title}</b><small>{item.meta}</small></div></div>)}</div>
+      <div className={styles.list}>{nextItems.map(item => <div key={item.title} className={styles.row}><span className={styles.dot}/><div><b>{item.title}</b><small>{item.meta}</small></div></div>)}</div>
     </section>}
 
     {dailyMessageEnabled && <section className={styles.message}>
@@ -146,7 +146,7 @@ export function Today() {
         <div><strong>{formatStudyTime(week.totalSeconds)}</strong><span>recorded practice</span></div>
         <div><strong>{week.answered}</strong><span>questions answered</span></div>
       </div>
-      <Link href="/progress">View progress</Link>
+      <Link href="/progress">View progress →</Link>
     </section>
   </div>;
 }

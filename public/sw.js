@@ -1,4 +1,4 @@
-const CACHE="kih-v2-final-shell-v20-journal";
+const CACHE="kih-v2-final-shell-v20";
 const PRIVATE_CACHE="kih-v2-private-nav-v20";
 const SAFE_SHELL=[
   "/offline",

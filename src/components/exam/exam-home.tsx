@@ -58,7 +58,7 @@ export function ExamHome() {
     <div className={styles.page}>
       <section className={styles.hero}>
         <small>PRACTICE</small>
-        <h1>Practice, at your pace.</h1>
+        <h1>Train with purpose.</h1>
         <p>
           Short practice when you need feedback. PRC-style simulation when you need exam conditions.
         </p>
@@ -71,33 +71,33 @@ export function ExamHome() {
             <h2>{resumable.title}</h2>
             <p>There is an autosaved {getAttempt(resumable.id)?.mode} attempt on this device.</p>
           </div>
-          <Link href={`/practice/${resumable.id}`}>Continue</Link>
+          <Link href={`/practice/${resumable.id}`}>Continue →</Link>
         </section>
       )}
 
       <section className={styles.actions}>
         <div className={styles.sectionHead}>
           <div>
-            <small>YOUR NEXT SESSION</small>
-            <h2>Start small. Build confidence.</h2>
+            <small>START SOMETHING</small>
+            <h2>Choose the kind of work you need.</h2>
           </div>
         </div>
 
         <div className={styles.actionList}>
           <button onClick={startQuick}>
-            <span className={styles.icon} aria-hidden="true">01</span>
+            <span className={styles.icon}>10</span>
             <span><b>Quick Practice</b><small>10 mixed questions from your verified question bank.</small></span>
-            
+            <i>→</i>
           </button>
           <button className={styles.targetButton} onClick={() => document.getElementById("targeted-practice")?.scrollIntoView({ behavior: "smooth" })}>
-            <span className={styles.icon} aria-hidden="true">02</span>
+            <span className={styles.icon}>◎</span>
             <span><b>Targeted Practice</b><small>Choose a CELE area or a specific topic.</small></span>
-            
+            <i>→</i>
           </button>
           <Link href="#past-exams">
-            <span className={styles.icon} aria-hidden="true">03</span>
+            <span className={styles.icon}>▤</span>
             <span><b>Past Exams</b><small>Use uploaded papers in Practice or Simulation mode.</small></span>
-            
+            <i>→</i>
           </Link>
         </div>
         {message && <p className={styles.message}>{message}</p>}
@@ -127,10 +127,10 @@ export function ExamHome() {
       <section className={styles.prc}>
         <div>
           <small>PRC SIMULATION STANDARD</small>
-          <h2>Get familiar with exam day.</h2>
+          <h2>Current CELE timing, built into the app.</h2>
           <p>
             Based on {CELE_SIMULATION_STANDARD.guidelineVersion}, effective {CELE_SIMULATION_STANDARD.effectiveFrom}.
-            The timer keeps running when you leave the app. Choose a session when you have time to focus.
+            The timer uses an absolute deadline, so backgrounding, reloads, or reopening the PWA do not pause the clock.
           </p>
         </div>
         <div className={styles.blocks}>
@@ -144,7 +144,7 @@ export function ExamHome() {
             </article>
           ))}
         </div>
-        <a className={styles.source} href={CELE_SIMULATION_STANDARD.sourceUrl} target="_blank" rel="noreferrer">View PRC source</a>
+        <a className={styles.source} href={CELE_SIMULATION_STANDARD.sourceUrl} target="_blank" rel="noreferrer">View PRC source ↗</a>
       </section>
 
       <section id="past-exams" className={styles.papers}>
@@ -158,7 +158,7 @@ export function ExamHome() {
               return (
                 <Link key={exam.id} href={`/practice/${exam.id}`}>
                   <span><b>{exam.title}</b><small>{exam.questions.length} questions · {exam.durationMinutes} min{attempt && !attempt.submittedAt ? " · Resume available" : ""}</small></span>
-                  
+                  <i>→</i>
                 </Link>
               );
             })}
@@ -172,7 +172,7 @@ export function ExamHome() {
               {raw.map((item) => (
                 <Link key={item.id} href={`/practice/prepare/${item.id}`}>
                   <span><b>{item.title}</b><small>Original uploaded paper · prepare question structure</small></span>
-                  <i>Prepare</i>
+                  <i>Prepare →</i>
                 </Link>
               ))}
             </div>

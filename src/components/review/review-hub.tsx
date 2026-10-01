@@ -12,6 +12,11 @@ import type { LibraryItem } from "@/lib/library-types";
 import { ReviewTabs } from "./review-tabs";
 import styles from "./review-hub.module.css";
 
+const areaIcon: Record<string, string> = {
+  structural: "/assets/icons/subjects/structural.svg",
+  mste: "/assets/icons/subjects/applied.svg",
+  hge: "/assets/icons/subjects/hydraulics.svg",
+};
 
 export function ReviewHub() {
   const [search, setSearch] = useState("");
@@ -65,7 +70,7 @@ export function ReviewHub() {
     </section>
 
     <label className={styles.search}>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg>
+      <span aria-hidden="true">⌕</span>
       <input value={search} onChange={event => setSearch(event.target.value)} placeholder="Search topics and lessons, plus materials..." aria-label="Search Review"/>
       {search && <button onClick={() => setSearch("")} aria-label="Clear search">×</button>}
     </label>
@@ -75,27 +80,27 @@ export function ReviewHub() {
     {search.trim() ? <section className={styles.searchResults}>
       <div className={styles.sectionTitle}><span>SEARCH RESULTS</span><small>{results.length} shown</small></div>
       {results.length ? <div className={styles.resultList}>{results.map(result => <Link href={result.href} key={`${result.type}:${result.href}`}>
-        <div><small>{result.type.toUpperCase()}</small><b>{result.title}</b><span>{result.subtitle}</span></div>
+        <div><small>{result.type.toUpperCase()}</small><b>{result.title}</b><span>{result.subtitle}</span></div><strong>›</strong>
       </Link>)}</div> : <div className={styles.empty}>Nothing in Review matches “{search}”.</div>}
     </section> : <>
       <section className={styles.continueSection}>
         <div className={styles.sectionTitle}><span>CONTINUE</span></div>
         <Link href={`/review/lesson/${recommended.lesson.slug}`} className={styles.continueRow}>
           <div><small>{recommended.area.short}</small><h2>{recommended.lesson.title}</h2><p>{recommended.lesson.readMinutes} min · {recommended.priority?.reasons[0] || "A focused starter lesson"}</p></div>
-          <span>Open lesson</span>
+          <span aria-hidden="true">→</span>
         </Link>
       </section>
 
       <section className={styles.coverage}>
         <div className={styles.sectionTitle}><span>CELE COVERAGE</span><small>39 topic groups</small></div>
-        <div className={styles.areaList}>{areas.map((area, index) => {
+        <div className={styles.areaList}>{areas.map(area => {
           const metrics = area.topics.map(topic => topicMetrics[`${area.key}:${topic.slug}`]).filter(Boolean);
           const measured = metrics.filter(metric => metric.keyedAttempted > 0).length;
           return <Link href={`/review/subjects/${area.key}`} key={area.key} className={styles.areaRow}>
-            <span className={styles.subjectIndex} aria-hidden="true">0{index + 1}</span>
+            <img src={areaIcon[area.key]} alt=""/>
             <div><b>{area.name}</b><span>{area.topics.length} topics · {measured ? `${measured} with practice evidence` : "start anywhere"}</span></div>
             <div className={styles.weight}><strong>{area.weight}%</strong><small>of CELE</small></div>
-            
+            <span className={styles.chevron}>›</span>
           </Link>;
         })}</div>
       </section>

@@ -1,0 +1,4 @@
+.m{width:min(100%,780px);margin:auto;padding:calc(96px + env(safe-area-inset-top)) 24px calc(112px + env(safe-area-inset-bottom))}.public{min-height:100svh;width:100%;padding:0}.exam{width:100%;max-width:none;margin:0;padding:0}
+@media(min-width:600px) and (max-width:899px){.m{padding-left:40px;padding-right:40px}}
+@media(min-width:900px){.m{width:auto;max-width:1440px;margin-left:224px;padding:52px clamp(28px,4vw,72px) 80px}}
+@media(max-width:359px){.m{padding-left:18px;padding-right:18px}}

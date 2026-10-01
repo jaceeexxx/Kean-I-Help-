@@ -1,0 +1,1 @@
+import{notFound}from"next/navigation";import{getLesson}from"@/lib/review-content";import{Lesson}from"@/components/review/lesson";export default async function Page({params}:{params:Promise<{slug:string}>}){const{slug}=await params,l=getLesson(slug);if(!l)notFound();return <Lesson l={l}/>}

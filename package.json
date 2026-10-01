@@ -1,0 +1,52 @@
+{
+  "name": "kean-i-help",
+  "version": "0.20.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "verify:phase7": "node scripts/verify-phase7.mjs",
+    "verify:phase8": "node scripts/verify-phase8.mjs",
+    "verify:phase9": "node scripts/verify-phase9.mjs",
+    "verify:phase10": "node scripts/verify-phase10.mjs",
+    "verify:phase11": "node scripts/verify-phase11.mjs",
+    "verify:phase12": "node scripts/verify-phase12.mjs",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "check:env": "node scripts/check-production-env.mjs",
+    "verify:v2phase1": "node scripts/verify-v2phase1.mjs",
+    "verify:v2phase2": "node scripts/verify-v2phase2.mjs",
+    "verify:v2phase3": "node scripts/verify-v2phase3.mjs",
+    "verify:v2phase4": "node scripts/verify-v2phase4.mjs",
+    "verify:v2phase5": "node scripts/verify-v2phase5.mjs",
+    "test:simulation-clock": "node scripts/test-simulation-clock.mjs",
+    "verify:v2phase6": "node scripts/verify-v2phase6.mjs",
+    "verify:v2phase7": "node scripts/verify-v2phase7.mjs",
+    "verify:v2phase8": "node scripts/verify-v2phase8.mjs",
+    "test:e2e:final": "cypress run --spec \"cypress/e2e/smoke.cy.ts,cypress/e2e/responsive-shell.cy.ts,cypress/e2e/accessibility-preferences.cy.ts,cypress/e2e/offline-shell.cy.ts,cypress/e2e/pwa-privacy.cy.ts,cypress/e2e/exam-resilience.cy.ts\""
+  },
+  "dependencies": {
+    "@supabase/ssr": "latest",
+    "@supabase/supabase-js": "latest",
+    "next": "^16.0.0",
+    "pdfjs-dist": "^6.3.289",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "web-push": "latest",
+    "katex": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "^16.0.0",
+    "typescript": "latest",
+    "@types/web-push": "latest",
+    "cypress": "latest",
+    "supabase": "latest",
+    "@types/katex": "latest"
+  }
+}

@@ -1,0 +1,7 @@
+-- Phase 6: derived analytics support + generated review plans.
+alter table public.exam_questions add column if not exists area_key text;
+alter table public.exam_questions add column if not exists topic_slug text;
+alter table public.exam_attempts add column if not exists question_times_sec jsonb not null default '{}'::jsonb;
+create table if not exists public.review_plans(id uuid primary key default gen_random_uuid(),user_id uuid not null references auth.users(id) on delete cascade,plan_date date not null,source text not null default 'progress-engine',total_minutes integer not null,items jsonb not null default '[]'::jsonb,created_at timestamptz not null default now(),unique(user_id,plan_date));
+create table if not exists public.milestone_events(id uuid primary key default gen_random_uuid(),user_id uuid not null references auth.users(id) on delete cascade,milestone_key text not null,earned_at timestamptz not null default now(),metadata jsonb not null default '{}'::jsonb,unique(user_id,milestone_key));
+alter table public.review_plans enable row level security;alter table public.milestone_events enable row level security;create policy "review_plans_own" on public.review_plans for all to authenticated using((select auth.uid())=user_id) with check((select auth.uid())=user_id);create policy "milestone_events_own" on public.milestone_events for all to authenticated using((select auth.uid())=user_id) with check((select auth.uid())=user_id);

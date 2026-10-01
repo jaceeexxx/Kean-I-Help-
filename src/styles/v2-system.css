@@ -1,0 +1,48 @@
+:root{
+  --kih-ink:#203b35;--kih-graphite:#24332f;--kih-muted:#626e65;
+  --kih-kean-600:#286353;--kih-kean-500:#427c6a;--kih-kean-100:#e6eee7;
+  --kih-jace-500:#cba76b;--kih-jace-100:#f1e9d7;
+  --kih-paper:#f6f4ee;--kih-surface:#fff;--kih-surface-soft:#eeeee5;--kih-line:#dddfd5;
+  --kih-success:#3c7257;--kih-danger:#a4473d;
+  --kih-radius-sm:4px;--kih-radius-md:6px;--kih-radius-lg:8px;--kih-radius-sheet:12px;
+  --kih-space-1:4px;--kih-space-2:8px;--kih-space-3:12px;--kih-space-4:16px;--kih-space-5:20px;--kih-space-6:24px;--kih-space-8:32px;--kih-space-10:40px;--kih-space-12:48px;--kih-space-16:64px;
+  --blue:var(--kih-kean-600);--blueStrong:#1d5042;--blueSoft:var(--kih-kean-100);
+  --yellow:var(--kih-jace-500);--yellowStrong:#78592f;--yellowSoft:var(--kih-jace-100);
+  --bg:var(--kih-paper);--surface:var(--kih-surface);--glass:rgba(255,255,255,.92);
+  --text:var(--kih-graphite);--text2:#546159;--text3:var(--kih-muted);
+  --border:rgba(32,59,53,.14);--border2:rgba(32,59,53,.24);--fill:rgba(32,59,53,.05);
+  --success:var(--kih-success);--danger:var(--kih-danger);--shadow:0 8px 24px rgba(32,59,53,.05)
+}
+html[data-theme="dark"]{
+  --kih-paper:#171e1b;--kih-surface:#202a24;--kih-surface-soft:#28352d;--kih-line:#39483e;
+  --kih-graphite:#eeeede;--kih-muted:#abb8ac;--kih-kean-600:#9ac9b3;--kih-kean-100:#2a4034;--kih-jace-500:#cbb185;--kih-jace-100:#383325;--yellowStrong:#d9bd88;--success:#91bf9e;--danger:#e49e91;
+  --bg:var(--kih-paper);--surface:var(--kih-surface);--glass:rgba(32,42,36,.96);--text:var(--kih-graphite);--text2:#c6cfc5;--text3:var(--kih-muted);--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);--fill:rgba(255,255,255,.06);--blue:var(--kih-kean-600);--blueSoft:var(--kih-kean-100);--yellow:var(--kih-jace-500);--yellowSoft:var(--kih-jace-100);--shadow:0 16px 48px rgba(0,0,0,.18)
+}
+body{background:var(--kih-paper);font-family:var(--font-ui);font-size:16px;line-height:1.55}
+.kih-editorial{font-family:var(--font-editorial)}
+
+/* V2 Phase 8: system-theme, contrast and installed-PWA polish */
+@media(prefers-color-scheme:dark){html:not([data-theme]){
+  color-scheme:dark;
+  --kih-paper:#171e1b;--kih-surface:#202a24;--kih-surface-soft:#28352d;--kih-line:#39483e;
+  --kih-graphite:#eeeede;--kih-muted:#abb8ac;--kih-kean-600:#9ac9b3;--kih-kean-100:#2a4034;--kih-jace-500:#cbb185;--kih-jace-100:#383325;--yellowStrong:#d9bd88;--success:#91bf9e;--danger:#e49e91;
+  --bg:var(--kih-paper);--surface:var(--kih-surface);--glass:rgba(32,42,36,.96);--text:var(--kih-graphite);--text2:#c6cfc5;--text3:var(--kih-muted);--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);--fill:rgba(255,255,255,.06);--blue:var(--kih-kean-600);--blueSoft:var(--kih-kean-100);--yellow:var(--kih-jace-500);--yellowSoft:var(--kih-jace-100);--shadow:0 16px 48px rgba(0,0,0,.18)
+}}
+html[data-high-contrast="true"]{--shadow:none}
+@media(display-mode:standalone){body{overscroll-behavior-y:none}}
+@media(max-width:599px){body{font-size:16px}}
+@media(min-width:600px) and (max-width:899px){body{font-size:16px}}
+
+/* Journal system: native fonts remain available offline on every screen. */
+:root{--font-ui:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;--font-editorial:"Iowan Old Style","Palatino Linotype",Georgia,serif;--surface-soft:var(--kih-surface-soft);--yellow2:var(--yellowStrong);--action:#286353;--action-text:#fff;--danger-action:#a4473d}
+h1{font-family:var(--font-editorial);font-weight:400;line-height:1.12;letter-spacing:-.035em}
+h2,h3{font-weight:600;line-height:1.25}
+button,a,input,select,textarea{touch-action:manipulation}
+button:not(:disabled),a,select{cursor:pointer}
+a{color:inherit}
+p{ text-wrap:pretty }
+button:disabled{cursor:not-allowed}
+input,textarea,select{accent-color:var(--blue)}
+html[data-theme="dark"]{--action:#326d5f}
+@media(prefers-color-scheme:dark){html:not([data-theme]){--action:#326d5f}}
+

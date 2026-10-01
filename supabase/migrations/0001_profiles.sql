@@ -1,0 +1,1 @@
+create table if not exists public.profiles(id uuid primary key references auth.users(id) on delete cascade,display_name text,created_at timestamptz not null default now());alter table public.profiles enable row level security;create policy "profiles_own" on public.profiles for all to authenticated using((select auth.uid())=id) with check((select auth.uid())=id);

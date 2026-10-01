@@ -1,0 +1,1 @@
+import{SettingsHome}from"@/components/settings/settings-home";export default function Page(){return <SettingsHome/>}

@@ -1,0 +1,1 @@
+import{notFound}from"next/navigation";import{getArea}from"@/lib/curriculum";import{SubjectPage}from"@/components/review/subject-page";export default async function Page({params}:{params:Promise<{area:string}>}){const{area:k}=await params,a=getArea(k);if(!a)notFound();return <SubjectPage area={a}/>}

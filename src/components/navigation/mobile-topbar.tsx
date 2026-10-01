@@ -1,0 +1,1 @@
+"use client";import{usePathname}from"next/navigation";import{BrandMark}from"@/components/ui/brand-mark";import{AccountMenu}from"@/components/settings/account-menu";import styles from"./mobile-topbar.module.css";export function MobileTopbar(){const p=usePathname();if(p.includes("/run"))return null;return <header className={styles.h}><BrandMark compact/><AccountMenu/></header>}

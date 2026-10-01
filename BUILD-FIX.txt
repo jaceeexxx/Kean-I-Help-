@@ -1,0 +1,12 @@
+Kean I Help? V2 Phase 8 build fix
+
+Fixes:
+- Cypress spec files are now ES modules so top-level helpers do not collide across specs or with Mocha's global setup().
+- ExamPlayer nested Ask Jace handler now uses a non-null exam reference after the render guard.
+- ExamResults nested handlers capture non-null exam/attempt aliases after the submitted-result guard.
+- TopicProgress nested Ask Jace handler captures non-null topic data after the loading guard.
+- ReviewHub recommendation logic explicitly narrows the curriculum area before returning it.
+- Next/Turbopack root is pinned to the current project directory, avoiding incorrect parent-workspace inference when V2 is nested inside another pnpm project.
+
+Apply by extracting this ZIP directly into the V2 project folder and replacing existing files, then run:
+  pnpm run build

@@ -1,0 +1,22 @@
+*{box-sizing:border-box}
+html{min-width:320px;background:var(--bg);scroll-padding-top:80px;text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100svh;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}
+button,input,textarea,select{font:inherit;color:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+img,svg{max-width:100%}
+main:focus{outline:none}
+::selection{background:var(--blueSoft);color:var(--text)}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid color-mix(in srgb,var(--blue) 55%,transparent);outline-offset:3px}
+
+html[data-reduce-motion="true"] *,html[data-reduce-motion="true"] *::before,html[data-reduce-motion="true"] *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+html[data-text-scale="large"] body{font-size:18px}
+html[data-text-scale="large"] button,html[data-text-scale="large"] input,html[data-text-scale="large"] textarea,html[data-text-scale="large"] select{font-size:1em}
+html[data-high-contrast="true"]{--border:color-mix(in srgb,var(--text) 28%,transparent);--border2:color-mix(in srgb,var(--text) 44%,transparent);--text2:color-mix(in srgb,var(--text) 78%,var(--bg));--text3:color-mix(in srgb,var(--text) 68%,var(--bg))}
+html[data-high-contrast="true"] button:focus-visible,html[data-high-contrast="true"] a:focus-visible,html[data-high-contrast="true"] input:focus-visible,html[data-high-contrast="true"] textarea:focus-visible,html[data-high-contrast="true"] select:focus-visible{outline-width:4px}
+html[data-underline-links="true"] a:not([class]){text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:.08em}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media(pointer:coarse){button,select,input[type="button"],input[type="submit"],input[type="checkbox"],a[role="button"]{min-height:44px}}
+@media(prefers-contrast:more){:root{--border:color-mix(in srgb,var(--text) 28%,transparent);--border2:color-mix(in srgb,var(--text) 44%,transparent)}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline-width:4px}}
+@media(forced-colors:active){button,a,input,textarea,select{forced-color-adjust:auto}}
+@media print{nav,aside,[data-no-print="true"]{display:none!important}body{background:#fff!important;color:#000!important}main{margin:0!important;padding:0!important;max-width:none!important}}

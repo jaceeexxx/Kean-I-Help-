@@ -1,0 +1,5 @@
+.n{position:fixed;z-index:46;left:0;right:0;bottom:0;padding:0 12px env(safe-area-inset-bottom);border-top:1px solid var(--border2);background:var(--surface)}
+.n>div{width:min(100%,620px);margin:auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));min-height:72px}
+.n a,.jace{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:64px;border:0;border-top:2px solid transparent;background:transparent;color:var(--text3);text-decoration:none;font:inherit;font-size:12px;font-weight:500;cursor:pointer}
+.n svg{width:21px;height:21px}.n .a{border-top-color:var(--blue);color:var(--blue);font-weight:650}.n a:hover,.jace:hover{color:var(--blue);background:var(--fill)}
+@media(min-width:900px){.n{display:none}}
